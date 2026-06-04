@@ -1,92 +1,40 @@
-import StatBar from "./StatBar";
 import PetSprite from "./PetSprite";
 
 function PetCard({ pet, petState }) {
 
-    let petMood = "😄";
+   let currentAnimation = petState;
 
-if (
-  pet.hunger < 30 ||
-  pet.energy < 30
-) {
-  petMood = "😟";
-}
-
-if (
-  pet.hunger < 15 ||
-  pet.energy < 15
-) {
-  petMood = "😢";
-}
-
-if (pet.energy < 5) {
-  petMood = "😴";
-}
+    if (pet.energy <= 20) {
+        currentAnimation = "sleeping";
+    }
 
   return (
-    <div className="bg-white p-6 rounded-2xl shadow-lg">
+    <div style={{
+      textAlign: "center",
+      minWidth: "200px",
+    }}>
 
-      <div className="text-center">
-
-        <div className="text-7xl mb-4">
-          <PetSprite state={petState} />
-        </div>
-
-        <h2 className="text-2xl font-bold">
-          {pet.name}
-        </h2>
-
-        <p className="text-gray-500 mb-6">
-          {pet.petType}
-        </p>
-
-        <p className="text-gray-600 mt-2">
-  {
-    pet.energy < 10
-      ? "I'm sleepy..."
-      : pet.hunger < 20
-      ? "I'm hungry..."
-      : pet.happiness < 20
-      ? "Play with me!"
-      : "I'm happy!"
-  }
-</p>
-
-<p>⭐ Level: {pet.level}</p>
-
-<p>XP: {pet.xp}/100</p>
-
-<p>🪙 Coins: {pet.coins}</p>
-
-<p>
-  🍎 Food:
-  {pet.inventory.food}
-</p>
-
-<p>
-  🧸 Toys:
-  {pet.inventory.toys}
-</p>
-
+      <div style={{ marginTop: "80px", marginBottom: "32px" }}>
+        <PetSprite state={currentAnimation} />
       </div>
 
-      <StatBar
-        emoji="🍔"
-        label="Hunger"
-        value={pet.hunger}
-      />
+      <h2 style={{ fontSize: "1.5rem", fontWeight: 800, color: "#fff", margin: "0 0 4px", textShadow: "0 2px 6px rgba(0,0,0,0.4)" }}>
+        {pet.name}
+      </h2>
 
-      <StatBar
-        emoji="😊"
-        label="Happiness"
-        value={pet.happiness}
-      />
+      <p style={{ color: "#fff", fontSize: "0.9rem", marginBottom: "12px", textShadow: "0 1px 4px rgba(0,0,0,0.35)" }}>
+        {pet.petType}
+      </p>
 
-      <StatBar
-        emoji="⚡"
-        label="Energy"
-        value={pet.energy}
-      />
+      <p style={{ color: "#fff", fontStyle: "italic", fontSize: "0.95rem", textShadow: "0 1px 4px rgba(0,0,0,0.35)" }}>
+        {pet.energy < 10
+          ? "I'm sleepy... 😴"
+          : pet.hunger < 20
+          ? "I'm hungry... 🍔"
+          : pet.happiness < 20
+          ? "Play with me! 🎾"
+          : "I'm happy! 😄"}
+      </p>
 
     </div>
   );
