@@ -158,37 +158,15 @@ const buyToy = async () => {
     }}>
 
       <h1 style={{
-        fontSize: "2rem",
+        fontSize: "1.1rem",
         fontWeight: 800,
         color: "#0f0f0f",
-        marginTop: "80px",
+        marginTop: "-70px",
+        marginRight: "1100px",
         textShadow: "0 2px 8px rgba(0,0,0,0.35), 0 0 2px rgba(0,0,0,0.5)",
         letterSpacing: "0.02em",
-      }}>Virtual Pet App 🐱</h1>
+      }}>Virtual Pet App </h1>
 
-      {/* Top-left stats HUD */}
-      {pet && (
-        <div style={{
-          position: "fixed",
-          top: "16px",
-          left: "16px",
-          background: "rgba(255,255,255,0.92)",
-          backdropFilter: "blur(8px)",
-          borderRadius: "16px",
-          padding: "16px 20px",
-          boxShadow: "0 4px 20px rgba(0,0,0,0.12)",
-          border: "1px solid rgba(0,0,0,0.08)",
-          minWidth: "220px",
-          zIndex: 50,
-        }}>
-          <div style={{ fontSize: "11px", color: "#888", fontWeight: 600, letterSpacing: "0.05em", textTransform: "uppercase", marginBottom: "12px" }}>
-            Vitals
-          </div>
-          <StatBar emoji="🍔" label="Hunger"    value={pet.hunger}    />
-          <StatBar emoji="😊" label="Happiness" value={pet.happiness} />
-          <StatBar emoji="⚡" label="Energy"    value={pet.energy}    />
-        </div>
-      )}
 
       {/* Top-right HUD */}
       {pet && (
@@ -243,6 +221,12 @@ const buyToy = async () => {
               <span>🧸</span>
               <span style={{ fontWeight: 600 }}>{pet.inventory.toys} Toys</span>
             </div>
+          </div>
+
+          <div style={{ borderTop: "1px solid #f1f5f9", paddingTop: "12px", marginTop: "4px" }}>
+            <StatBar emoji="🍔" label="Hunger"    value={pet.hunger}    />
+            <StatBar emoji="😊" label="Happiness" value={pet.happiness} />
+            <StatBar emoji="⚡" label="Energy"    value={pet.energy}    />
           </div>
         </div>
       )}
