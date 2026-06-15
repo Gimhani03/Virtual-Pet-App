@@ -161,7 +161,7 @@ const buyToy = async () => {
         fontSize: "1.1rem",
         fontWeight: 800,
         color: "#0f0f0f",
-        marginTop: "-70px",
+        marginTop: "-100px",
         marginRight: "1100px",
         textShadow: "0 2px 8px rgba(0,0,0,0.35), 0 0 2px rgba(0,0,0,0.5)",
         letterSpacing: "0.02em",
